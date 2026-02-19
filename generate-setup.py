@@ -156,6 +156,25 @@ echo "=== Registering Jupyter kernel '$KERNEL_NAME' ==="
     --name "$KERNEL_NAME" \\
     --display-name "$DISPLAY_NAME (Python $PYTHON_VERSION)"
 
+# --- Add CoCalc metadata to kernel spec ------------------------------------
+KERNEL_JSON="$HOME/.local/share/jupyter/kernels/$KERNEL_NAME/kernel.json"
+if [[ -f "$KERNEL_JSON" ]]; then
+    "$ENV_DIR/bin/python" -c "
+import json, pathlib
+p = pathlib.Path('$KERNEL_JSON')
+k = json.loads(p.read_text())
+k['metadata'] = {{
+    'cocalc': {{
+        'priority': 10,
+        'description': 'Custom environment for $DISPLAY_NAME',
+        'url': 'https://github.com/haraldschilly/uv-custom-jupyter-env'
+    }}
+}}
+p.write_text(json.dumps(k, indent=1) + '\\n')
+"
+    echo "=== Added CoCalc metadata to kernel spec ==="
+fi
+
 echo
 echo "=== Done ==="
 echo "Kernel '$DISPLAY_NAME (Python $PYTHON_VERSION)' is ready."
