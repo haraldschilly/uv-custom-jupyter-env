@@ -34,7 +34,10 @@ CoCalc project** and run there.
    ```bash
    bash my-python-env-setup.sh
    ```
-6. Open `my-python-env-test.ipynb` to verify everything works.
+6. Open the test notebook from the terminal to verify everything works:
+   ```bash
+   open my-python-env-test.ipynb
+   ```
 
 ## Sharing the generated script
 
@@ -91,7 +94,7 @@ Wrote: /home/user/my-python-env-test.ipynb
 
 Next steps:
   1. Run the setup:        bash my-python-env-setup.sh
-  2. Open the notebook:    my-python-env-test.ipynb
+  2. Open the notebook:    open my-python-env-test.ipynb
   3. Or copy both files to another CoCalc project.
   4. To update packages later, edit the PACKAGES array in
      my-python-env-setup.sh and re-run it.

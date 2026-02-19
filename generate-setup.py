@@ -282,7 +282,7 @@ def main():
     print()
     print("Next steps:")
     print(f"  1. Run the setup:        bash {output_filename}")
-    print(f"  2. Open the notebook:    {notebook_filename}")
+    print(f"  2. Open the notebook:    open {notebook_filename}")
     print(f"  3. Or copy both files to another CoCalc project.")
     print(f"  4. To update packages later, edit the PACKAGES array in")
     print(f"     {output_filename} and re-run it.")
