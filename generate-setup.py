@@ -165,7 +165,7 @@ p = pathlib.Path('$KERNEL_JSON')
 k = json.loads(p.read_text())
 k['metadata'] = {{
     'cocalc': {{
-        'priority': 10,
+        'priority': 100,
         'description': 'Custom environment for $DISPLAY_NAME',
         'url': 'https://github.com/haraldschilly/uv-custom-jupyter-env'
     }}
